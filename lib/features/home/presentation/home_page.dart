@@ -23,6 +23,7 @@ class HomePage extends StatelessWidget {
           const Gap(25),
           UpcomingFlights(),
           Hotels(),
+          const Gap(50)
         ],
       ),
     );
@@ -64,7 +65,10 @@ class Hotels extends StatelessWidget {
             padding: const EdgeInsets.only(left: 20),
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: [HotelCard(), HotelCard()],
+              children: [
+                HotelCard(),
+                HotelCard(),
+              ],
             ),
           ),
         ),
@@ -81,6 +85,7 @@ class HotelCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(10),
       margin: const EdgeInsets.only(right: 20),
       width: MediaQuery.of(context).size.width * 0.6,
       decoration: BoxDecoration(
@@ -88,18 +93,28 @@ class HotelCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            padding: const EdgeInsets.all(10),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image.network(
-                "https://wallpapers.com/images/file/modern-coastal-luxury-dream-beach-house-te8hgz0pej6vgbju.jpg",
-                fit: BoxFit.fitWidth,
-              ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Image.network(
+              "https://wallpapers.com/images/file/modern-coastal-luxury-dream-beach-house-te8hgz0pej6vgbju.jpg",
+              fit: BoxFit.fitWidth,
             ),
           ),
-          Text('data'),
+          Text(
+            'Hotel Name',
+            style: Styles.headLineStyle2.copyWith(color: Colors.white),
+          ),
+          Text(
+            'City',
+            style: Styles.headLineStyle4.copyWith(color: Colors.white),
+          ),
+          Text(
+            'Price',
+            style: Styles.headLineStyle3.copyWith(color: Colors.white),
+          ),
+          const Gap(10)
         ],
       ),
     );
